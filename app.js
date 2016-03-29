@@ -1,20 +1,24 @@
 (function () {
     'use strict';
 
-    var express = require('express');
+    var express = require('express'),
+        mongoose = require('mongoose'),
+        bodyParser = require('body-parser');
 
+    var db = mongoose.connect('mongodb://localhost/lunchWithAPI');
+
+    var Foodie = require('./models/foodieModel');
     var app = express();
 
     var port = process.env.PORT || 3000;
 
-    // var foodieRouter = require('./routes/foodieRoutes')();
-    var foodieRouter = express.Router();
-    foodieRouter.route('/')
-        .get(function (req, res) {
-            var responseJson = {hello: "This is foodie profile"};
-            res.json(responseJson);
-        });
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+
+    var foodieRouter = require('./routes/foodieRoutes')(Foodie);
+
     app.use('/api/foodies', foodieRouter);
+    // app.use('/api/companies', companyRouter);
 
     app.get('/', function (req, res) {
         res.send('Welcome to LunchWith API');
