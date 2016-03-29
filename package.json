@@ -1,0 +1,27 @@
+{
+  "name": "lunchwithapi",
+  "version": "1.0.0",
+  "description": "api for lunchwith app",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thuongho/lunchWithAPI.git"
+  },
+  "author": "Thuong Dan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thuongho/lunchWithAPI/issues"
+  },
+  "homepage": "https://github.com/thuongho/lunchWithAPI#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.0.6"
+  }
+}
