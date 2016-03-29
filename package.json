@@ -23,5 +23,12 @@
     "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "gulp-jshint": "^2.0.0",
+    "gulp-jslint": "^0.2.2",
+    "gulp-mocha": "^2.2.0",
+    "should": "^8.3.0",
+    "sinon": "^1.17.3"
   }
 }
