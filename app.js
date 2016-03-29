@@ -7,6 +7,15 @@
 
     var port = process.env.PORT || 3000;
 
+    // var foodieRouter = require('./routes/foodieRoutes')();
+    var foodieRouter = express.Router();
+    foodieRouter.route('/')
+        .get(function (req, res) {
+            var responseJson = {hello: "This is foodie profile"};
+            res.json(responseJson);
+        });
+    app.use('/api/foodies', foodieRouter);
+
     app.get('/', function (req, res) {
         res.send('Welcome to LunchWith API');
     });
@@ -16,5 +25,4 @@
     });
 
     module.exports = app;
-
 }());
