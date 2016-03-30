@@ -19,7 +19,8 @@
         lunchRange: {type: Number},
         blocked: [String],
         bio: {type: String},
-        favFood: [String]
+        favFood: [String],
+        pictureUrl: {type:String}
     });
 
     module.exports = mongoose.model('Foodie', foodieModel);
