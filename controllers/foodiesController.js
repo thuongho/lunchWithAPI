@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var foodieController = function (Foodie) {
+    var foodiesController = function (Foodie) {
 
         var post = function (req, res) {
             var foodie = new Foodie(req.body);
@@ -22,7 +22,7 @@
                 if (err) {
                     res.status(500).send(err);
                 } else {
-                    console.log('foodies', foodies);
+                    console.log('GET foodies', foodies);
                     res.json(foodies);
                 }
             });
@@ -35,5 +35,5 @@
 
     };
 
-    module.exports = foodieController;
+    module.exports = foodiesController;
 }());
