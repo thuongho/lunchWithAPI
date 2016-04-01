@@ -14,9 +14,10 @@
         var get = function (req, res) {
             var query = {};
 
-            if (req.query.lunchZip) {
-                query.lunchZip = req.query.lunchZip;
-            }
+            // if (req.query.lunchZip) {
+            //     query.lunchZip = req.query.lunchZip;
+            // }
+            query = req.query;
 
             Foodie.find(query, function (err, foodies) {
                 if (err) {

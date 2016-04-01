@@ -12,6 +12,8 @@
             .post(foodiesController.post)
             .get(foodiesController.get);
 
+        foodieRouter.route('/foodieId')
+            .get(foodieController.get);
         return foodieRouter;
     };
 

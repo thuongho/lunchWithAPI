@@ -1,9 +1,16 @@
 (function () {
     'use strict';
 
-    var foodieController = function () {
-        var get = function () {
-
+    var foodieController = function (Foodie) {
+        var get = function (request, response, next) {
+            console.log('request', request, 'response', response);
+            Foodie.findById(request.params.movieId, function (error, foodie) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('foodie', foodie);
+                }
+            });
         };
 
         var post = function () {
