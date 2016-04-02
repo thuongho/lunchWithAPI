@@ -4,7 +4,6 @@
     var foodieController = function (Foodie) {
         var get = function (request, response) {
             response.json(request.foodie);
-            
         };
 
         var post = function () {

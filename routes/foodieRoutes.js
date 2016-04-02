@@ -15,13 +15,14 @@
         foodieRouter.use('/:foodieId', function (request, response, next) {
             Foodie.findById(request.params.foodieId, function (error, foodie) {
                 if (error) {
-                    console.log(error);
+                    // 500 Internal Server Error
+                    response.status(500).send(error);
                 } else if (foodie) {
-                    console.log('foodie', foodie);
                     request.foodie = foodie;
                     next();
                 } else {
-                    response.send('Profile not found.');
+                    // 404 is not found
+                    response.status(404).send('Profile not found.');
                 }
             });
         });
