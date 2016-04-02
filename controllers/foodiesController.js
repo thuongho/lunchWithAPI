@@ -23,7 +23,6 @@
                 if (err) {
                     res.status(500).send(err);
                 } else {
-                    console.log('GET foodies', foodies);
                     res.json(foodies);
                 }
             });

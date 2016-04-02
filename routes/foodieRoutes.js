@@ -12,8 +12,23 @@
             .post(foodiesController.post)
             .get(foodiesController.get);
 
-        foodieRouter.route('/foodieId')
+        foodieRouter.use('/:foodieId', function (request, response, next) {
+            Foodie.findById(request.params.foodieId, function (error, foodie) {
+                if (error) {
+                    console.log(error);
+                } else if (foodie) {
+                    console.log('foodie', foodie);
+                    request.foodie = foodie;
+                    next();
+                } else {
+                    response.send('Profile not found.');
+                }
+            });
+        });
+
+        foodieRouter.route('/:foodieId')
             .get(foodieController.get);
+
         return foodieRouter;
     };
 

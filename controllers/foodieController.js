@@ -2,15 +2,9 @@
     'use strict';
 
     var foodieController = function (Foodie) {
-        var get = function (request, response, next) {
-            console.log('request', request, 'response', response);
-            Foodie.findById(request.params.movieId, function (error, foodie) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    console.log('foodie', foodie);
-                }
-            });
+        var get = function (request, response) {
+            response.json(request.foodie);
+            
         };
 
         var post = function () {
