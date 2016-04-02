@@ -2,12 +2,24 @@
     'use strict';
 
     var foodieController = function (Foodie) {
-        var get = function (request, response) {
-            response.json(request.foodie);
+
+        var findFoodieById = function (request, response, next) {
+            Foodie.findById(request.params.foodieId, function (error, foodie) {
+                if (error) {
+                    // 500 Internal Server Error
+                    response.status(500).send(error);
+                } else if (foodie) {
+                    request.foodie = foodie;
+                    next();
+                } else {
+                    // 404 is not found
+                    response.status(404).send('Profile not found.');
+                }
+            });
         };
 
-        var post = function () {
-
+        var get = function (request, response) {
+            response.json(request.foodie);
         };
 
         var put = function () {
@@ -23,8 +35,8 @@
         };
 
         return {
+            findFoodie: findFoodieById,
             get: get,
-            post: post,
             put: put,
             patch: patch,
             delete: deleteFoodie
