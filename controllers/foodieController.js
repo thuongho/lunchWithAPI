@@ -12,17 +12,18 @@
                     request.foodie = foodie;
                     next();
                 } else {
-                    // 404 is not found
+                    // 404 is request not found
                     response.status(404).send('Profile not found.');
                 }
             });
         };
 
+        // request.foodie avail for the follow...
         var get = function (request, response) {
             response.json(request.foodie);
         };
 
-        var put = function () {
+        var put = function (request, response) {
 
         };
 
